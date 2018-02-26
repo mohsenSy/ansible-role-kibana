@@ -1,4 +1,4 @@
-Role Name
+kibana
 =========
 
 A simple ansible role to install and configure kibana
