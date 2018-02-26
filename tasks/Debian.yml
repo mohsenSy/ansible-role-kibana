@@ -1,0 +1,14 @@
+- name: Install kibana
+  apt:
+    deb: "https://artifacts.elastic.co/downloads/kibana/kibana-{{ KIBANA_VERSION }}-amd64.deb"
+    state: present
+- name: Copy kibana config file
+  template:
+    src: kibana.yml.j2
+    dest: /etc/kibana/kibana.yml
+  notify: restart kibana
+- name: Start kibana
+  service:
+    name: kibana
+    state: started
+    enabled: true
